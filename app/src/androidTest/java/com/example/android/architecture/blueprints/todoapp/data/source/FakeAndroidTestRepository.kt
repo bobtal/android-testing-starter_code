@@ -9,7 +9,7 @@ import com.example.android.architecture.blueprints.todoapp.data.Result.Success
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import kotlinx.coroutines.runBlocking
 
-class FakeTestRepository : TasksRepository {
+class FakeAndroidTestRepository : TasksRepository {
     var tasksServiceData: LinkedHashMap<String, Task> = LinkedHashMap()
 
     private var shouldReturnError = false
