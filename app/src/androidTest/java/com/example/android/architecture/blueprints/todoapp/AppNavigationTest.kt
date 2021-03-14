@@ -6,7 +6,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.Espresso.pressBack
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -139,15 +140,11 @@ class AppNavigationTest {
 
         // 3. Confirm that if we click Back once, we end up back at the task details page.
         pressBack()
-        // should work with the commented line below, but for some reason it doesn't
-//        onView(withId(R.id.task_detail_title_text)).check(matches(isDisplayed()))
-        onView(withText("Description")).check(matches(isDisplayed()))
+        onView(withId(R.id.task_detail_title_text)).check(matches(isDisplayed()))
 
         // 4. Confirm that if we click Back a second time, we end up back at the home screen.
         pressBack()
-        // should work with the commented line below, but for some reason it doesn't
-//        onView(withId(R.id.tasks_container_layout)).check(matches(isDisplayed()))
-        onView(withText("Back button")).check(matches(isDisplayed()))
+        onView(withId(R.id.tasks_container_layout)).check(matches(isDisplayed()))
 
         // When using ActivityScenario.launch(), always call close()
         activityScenario.close()
