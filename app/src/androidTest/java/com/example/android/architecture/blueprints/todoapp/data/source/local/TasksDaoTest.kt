@@ -45,7 +45,7 @@ class TasksDaoTest {
         val task = Task("title", "description")
         database.taskDao().insertTask(task)
 
-        // WHEN - Get the task by id from the database
+        // WHEN - Get the task by taid from the database
         val loaded = database.taskDao().getTaskById(task.id)
 
         // THEN - The loaded data contains the expected values
